@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.example.apk30"
+        minSdkVersion 25
+        targetSdkVersion 25
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    flatDir {
+        dirs rootProject.file("../aar/lib/build/outputs/aar/")
+    }
+}
+
+dependencies {
+    debugImplementation ":lib-debug@aar";
+    releaseImplementation ":lib-release@aar";
+}
